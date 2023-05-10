@@ -32,7 +32,7 @@
 
 #### 1.2.1 计数器 CoutDownLantch
 
-<img src="./images/latch.png" alt="image-20230510204224054" style="zoom:50%;" />
+<img src="./images/latch.png" alt="image-20230510204224054" style="zoom:50%;" width="450"/>
 
 1. 原理：基于信号通知机制的同步计数器，同步线程执行顺序
 
