@@ -225,7 +225,7 @@
 
 <img src="./images/image-20230513010943755.png" alt="image-20230513010943755" style="zoom:25%;" width="450" />
 
-现代多核cpu处理器，每个core运行一个thread，都有本它自己的缓存。虽然使用缓存提高了处理器性能，但是又引入了缓存一致性问题，即当core1更新一个共享变量时，在写回策略下，不同步更新内存，core2访问该共享变量时，不是最新值。同时，编译器优化可能会对指令重排序。导致两个问题【更新不可见】和【指令重排序】。
+现代多核cpu处理器，每个core运行一个thread，都有它自己的缓存。虽然使用缓存提高了处理器性能，但是又引入了缓存一致性问题，即当core1更新一个共享变量时，在写回策略下，不同步更新内存，core2访问该共享变量时，不是最新值。同时，编译器优化可能会对指令重排序。导致两个问题【更新不可见】和【指令重排序】。
 
 https://www.geeksforgeeks.org/write-through-and-write-back-in-cache/
 
@@ -239,32 +239,29 @@ volatile 可以保证【更新可见性】和避免【指令重排序】
 
 ```java
 public class VolatileExample {
-  	// 如果 ready 不加 volatile 关键字有可能会打印 number 为 0 （writerThread 线程写 number 到主存存在延迟）  
+  
   	private static volatile boolean ready = false;
     private static int number;
 
     public static void main(String[] args) throws InterruptedException {
-        // 启动写线程
         Thread writerThread = new Thread(() -> {
             number = 42; // 1. 写操作
             ready = true; // 2. 使用 volatile 保证写操作不会被重排序
         });
+ 				writerThread.start();
 
-        // 启动读线程
-        Thread readerThread = new Thread(() -> {
-            while (!ready) {
-                // 等待直到 ready 变为 true
-            }
-            System.out.println(number); // 3. 读操作，由于使用了 volatile，这里会保证在写操作完成后执行
-        });
-
-        writerThread.start();
-        readerThread.start();
+       
+        while (!ready) {
+            // 等待直到 ready 变为 true
+        }
+        System.out.println(number); // 3. 读操作，由于使用了 volatile，这里会保证在写操作完成后执行
 
         writerThread.join();
-        readerThread.join();
     }
 }
+// 如果 ready 不加 volatile 关键字有可能会打印 number 为 0 
+// 1. writerThread 写 number 到主存存在延迟
+// 2. 指令重排序，1 2 顺序对调
 ```
 
 
