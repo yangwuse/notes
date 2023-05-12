@@ -30,7 +30,123 @@
 
 ### 1.2 同步工具
 
-#### 1.2.1 计数器 CoutDownLantch
+#### 1.2.1 数据竞争
+
+<img src="./images/image-20230513025204800.png" alt="image-20230513025204800" style="zoom:33%;" width="450"/>
+
+<img src="./images/image-20230513025530455.png" alt="image-20230513025530455" style="zoom:33%;" width="450"/>
+
+
+
+多线程并发读写同一个共享变量，会导致数据错误，本质是【更新】不是原子操作（读，修改，写），因此必须同步共享变量的读写，保证写变量的【原子性】
+
+#### 1.2.2 轻量级同步工具
+
+1. 使用【atomic】原子类
+
+   ```java
+   import java.util.concurrent.atomic.AtomicInteger;
+   
+   public class AtomicExample {
+       private static AtomicInteger count = new AtomicInteger(0);
+   
+       public static void main(String[] args) throws InterruptedException {
+           Thread t1 = new Thread(() -> {
+               for (int i = 0; i < 1000000; i++) {
+                   count.incrementAndGet();
+               }
+           });
+           t1.start();
+         
+           for (int i = 0; i < 1000000; i++) {
+               count.decrementAndGet();
+           }
+           
+           t1.join();
+           System.out.println(count.get()); // 0
+       }
+   }
+   ```
+
+   
+
+2. 使用【ReentrantLock】可重入锁
+
+   ```java
+   import java.util.concurrent.locks.ReentrantLock;
+   
+   public class ReentrantLockExample {
+       private static int count = 0;
+       private static ReentrantLock lock = new ReentrantLock();
+   
+       public static void main(String[] args) throws InterruptedException {
+           Thread t1 = new Thread(() -> {
+               for (int i = 0; i < 1000000; i++) {
+                   lock.lock();
+                   count++;
+                   lock.unlock();
+               }
+           });
+   				t1.start();
+         
+            for (int i = 0; i < 1000000; i++) {
+                 lock.lock();
+               	count--;
+               	lock.unlock();
+             }
+   
+           t1.join();
+           System.out.println(count); // 0
+       }
+   }
+   ```
+
+   
+
+3. 使用【Semaphore】信号量
+
+   ```java
+   import java.util.concurrent.Semaphore;
+   
+   public class SemaphoreExample {
+       private static int count = 0;
+       private static Semaphore semaphore = new Semaphore(1);
+   
+       public static void main(String[] args) throws InterruptedException {
+           Thread t1 = new Thread(() -> {
+               for (int i = 0; i < 1000000; i++) {
+                   try {
+                       semaphore.acquire();
+                       count++;
+                   } catch (InterruptedException e) {
+                       e.printStackTrace();
+                   } finally {
+                       semaphore.release();
+                   }
+               }
+           });
+           t1.start();
+         
+           for (int i = 0; i < 1000000; i++) {
+               try {
+                   semaphore.acquire();
+                   count--;
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               } finally {
+                   semaphore.release();
+               }
+           }
+        
+           t1.join();
+           System.out.println(count); // 0
+       }
+   }
+   ```
+
+   
+
+#### 1.2.2 计数器 CoutDownLantch
 
 <img src="./images/latch.png" alt="image-20230510204224054" style="zoom:50%;" width="450"/>
 
@@ -99,15 +215,118 @@
 
 
 
-## 1.2 JVM
+## 2. JVM
 
-### 1.2.1 内存模型
+### 2.1 内存模型
 
-#### 1.2.2 类加载机制
+<img src="./images/image-20230513010300231.png" alt="image-20230513010300231" style="zoom:50%;" width="450"/>
 
-#### 1.2.3 GC
 
-#### 1.2.4. 优化
+
+<img src="./images/image-20230513010943755.png" alt="image-20230513010943755" style="zoom:25%;" width="450" />
+
+现代多核cpu处理器，每个core运行一个thread，都有本它自己的缓存。虽然使用缓存提高了处理器性能，但是又引入了缓存一致性问题，即当core1更新一个共享变量时，在写回策略下，不同步更新内存，core2访问该共享变量时，不是最新值。同时，编译器优化可能会对指令重排序。导致两个问题【更新不可见】和【指令重排序】。
+
+https://www.geeksforgeeks.org/write-through-and-write-back-in-cache/
+
+https://www.geeksforgeeks.org/happens-before-relationship-in-java/
+
+https://www.baeldung.com/java-volatile
+
+#### 2.1.1 volatile 关键字
+
+volatile 可以保证【更新可见性】和避免【指令重排序】
+
+```java
+public class VolatileExample {
+  	// 如果 ready 不加 volatile 关键字有可能会打印 number 为 0 （writerThread 线程写 number 到主存存在延迟）  
+  	private static volatile boolean ready = false;
+    private static int number;
+
+    public static void main(String[] args) throws InterruptedException {
+        // 启动写线程
+        Thread writerThread = new Thread(() -> {
+            number = 42; // 1. 写操作
+            ready = true; // 2. 使用 volatile 保证写操作不会被重排序
+        });
+
+        // 启动读线程
+        Thread readerThread = new Thread(() -> {
+            while (!ready) {
+                // 等待直到 ready 变为 true
+            }
+            System.out.println(number); // 3. 读操作，由于使用了 volatile，这里会保证在写操作完成后执行
+        });
+
+        writerThread.start();
+        readerThread.start();
+
+        writerThread.join();
+        readerThread.join();
+    }
+}
+```
+
+
+
+【更新可见性】就是线程能立即看到共享变量的最新值，use case1 【状态标志】：
+
+```java
+public class VolatileFlagExample {
+    private static volatile boolean isRunning = true;
+
+    public static void main(String[] args) throws InterruptedException {
+        Thread workerThread = new Thread(() -> {
+            while (isRunning) {
+                // do some work
+            }
+        });
+
+        workerThread.start();
+        Thread.sleep(1000);
+        isRunning = false; // 使 workerThread 能立刻读到 isRunning 最新值
+    }
+}
+```
+
+
+
+【避免重排序】use case2【双重检查锁定】，避免【半初始化】问题
+
+```java
+// 在单例模式中，我们有时会使用双重检查锁定（Double-Checked Locking）来确保单例对象只被创建一次。在这种情况下，我们需要将单例对象声明为volatile，以防止由于JVM的指令重排导致其他线程在对象实例化完成前就看到了该对象的引用。
+public class Singleton {
+    private static volatile Singleton instance;
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    // JVM 中 instance = new Singleton() 它不是原子的，分为三个步骤
+                    // 1. 分配对象的内存空间
+                    // 2. 初始化对象
+                    // 3. 将内存地址赋值给instance变量
+                  	// 如果不加volatile，2 3可能交换顺序，导致其他线程拿到未初始化完的对象
+                    instance = new Singleton(); 
+                }
+            }
+        }
+        return instance;
+    }
+}
+```
+
+https://www.baeldung.com/java-volatile
+
+https://chat.openai.com/c/4952150e-9804-413c-8224-4fc3c21dd2ce
+
+### 2.2 类加载机制
+
+### 2.3 GC
+
+### 2.4. 优化
 
 
 
