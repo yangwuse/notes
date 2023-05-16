@@ -225,6 +225,8 @@
 
 <img src="./images/image-20230513010943755.png" alt="image-20230513010943755" style="zoom:25%;" width="450" />
 
+
+
 现代多核cpu处理器，每个core运行一个thread，都有它自己的缓存。虽然使用缓存提高了处理器性能，但是又引入了缓存一致性问题，即当core1更新一个共享变量时，在写回策略下，不同步更新内存，core2访问该共享变量时，不是最新值。同时，编译器优化可能会对指令重排序。导致两个问题【更新不可见】和【指令重排序】。
 
 https://www.geeksforgeeks.org/write-through-and-write-back-in-cache/
@@ -331,7 +333,83 @@ https://chat.openai.com/c/4952150e-9804-413c-8224-4fc3c21dd2ce
 
 # 二、框架
 
-#### 2.1 Spring
+## 2.1 Spring
+
+### 2.1 Spring IOC 容器
+
+
+
+#### 2.1.1 DI 注入方式
+
+##### 构造器注入（推荐）
+
+特性：强制性依赖，返回完全初始化的状态，实现不可变对象
+
+```java
+@Component
+@ToString
+@RequiredArgsConstructor // final 字段且不为 null
+public class People {
+    private final Animal animal; // 不能注入 null
+}
+
+@Component
+@ToString
+public class People {
+    private final Animal animal;
+  
+    public People(Animal animal) { // 不能注入 null，ioc 容器会忽略值为 null 的 bean，导致注入失败
+        this.animal = animal;
+    }
+  	// Parameter 0 of constructor in com.example.beansioc.People required a bean of type 'com.example.beansioc.Animal' that 【could not be found.】
+  	// The following candidates were found but 【could not be injected:】
+	  // - User-defined bean method 'getAnimal' in 'Config' 【ignored as the bean value is null】
+}
+
+@Component
+@ToString
+public class People {
+    private final Animal animal;
+  
+    public People(@Nullable Animal animal) { // 手动注入 null
+        this.animal = animal;
+    }
+}
+```
+
+
+
+##### setter 注入
+
+特性：非强制性依赖（可以设置默认值），可以重新注入
+
+```java
+@Component
+@ToString
+public class Person {
+    private Animal animal;
+
+    @Autowired
+    public void setAnimal(@Nullable Animal animal) { // 注入null时，使用默认值
+        this.animal = animal == null ? new Animal("default", 0) : animal;
+    }
+}
+
+@Data
+@AllArgsConstructor
+public class Animal {
+    private String name;
+    private Integer age;
+}
+
+@Configuration
+public class Config {
+    @Bean(name = "animal")
+    public Animal getAnimal() {
+        return null;
+    }
+}
+```
 
 #### 2.1.1 Bean 生命周期
 
