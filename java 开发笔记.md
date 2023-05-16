@@ -333,13 +333,11 @@ https://chat.openai.com/c/4952150e-9804-413c-8224-4fc3c21dd2ce
 
 # 二、框架
 
-## 2.1 Spring
+## 1. Spring
 
-### 2.1 Spring IOC 容器
+### 1.1 Spring IOC 容器
 
-
-
-#### 2.1.1 DI 注入方式
+#### 1.1.1 DI 注入方式
 
 ##### 构造器注入（推荐）
 
@@ -410,6 +408,44 @@ public class Config {
     }
 }
 ```
+
+
+
+#### 1.1.2 循环依赖
+
+A 依赖 B，B 依赖 A，对于单例Bean，通过三级缓存解决 B 循环依赖 A，缓存A的引用（未初始化状态）
+
+```java
+@Component
+@AllArgsConstructor
+public class A {
+    private B b;
+}
+
+@Component
+@AllArgsConstructor
+public class B {
+    private A a;
+}
+
+
+The dependencies of some of the beans in the application context form a cycle:
+
+┌─────┐
+|  a defined in file [/Users/yangwu/IdeaProjects/spring/beans-ioc/target/classes/com/example/beansioc/cycle/A.class]
+↑     ↓
+|  b defined in file [/Users/yangwu/IdeaProjects/spring/beans-ioc/target/classes/com/example/beansioc/cycle/B.class]
+└─────┘
+
+
+Action: // 要么手动删除依赖，要么设置允许循环依赖属性
+
+Relying upon circular references is discouraged and they are prohibited by default. Update your application to 【remove the dependency cycle】between beans. As a last resort, it may be possible to break the cycle automatically by【setting spring.main.allow-circular-references to true】.
+```
+
+对于原型Bean，因为每次创建新的对象，无法通过缓存解决循环依赖
+
+
 
 #### 2.1.1 Bean 生命周期
 
