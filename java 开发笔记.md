@@ -447,6 +447,41 @@ Relying upon circular references is discouraged and they are prohibited by defau
 
 
 
+#### 1.2.3 延迟初始化
+
+Spring 容器【默认在启动时】创建并初始化Bean，可以及早发现循环依赖的问题；而 @Lazy 可以推迟创建和初始化Bean 
+
+```java
+@Component @Lazy
+public class LazyBean {
+    private String name = "LazyBean";
+    public LazyBean() {
+        System.out.println("My name is " + name);
+    }
+}
+
+@SpringBootApplication
+public class BeansIocApplication {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context = SpringApplication.run(BeansIocApplication.class, args);
+		context.getBean(LazyBean.class); // 延迟到使用时创建和初始化 LazyBean
+	}
+}
+```
+
+**@Lazy** 解决的问题：
+
+- 加快容器启动速度：延迟创建重量级别的Bean（占用大量时间和资源，如网络连接、加载大文件）
+- 合理分配资源：避免大量资源被闲置浪费
+
+使用前提：
+
+- 某些Bean创建初始化时间长（网络、磁盘）影响容器启动速度，属于【慢Bean】
+- 某些Bean占用大量资源且资源利用率很低，属于【占着茅坑不拉屎的Bean】
+
+
+
 #### 2.1.1 Bean 生命周期
 
 1. 原理：根据配置扫描创建 Bean 对象，同时提供各种回调接口用于自定义初始化、销毁等逻辑
