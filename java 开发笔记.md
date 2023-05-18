@@ -610,6 +610,131 @@ public class BeansIocApplication {
 
 # 六、设计模式
 
+#### 1. 策略接口（策略模式）
+
+策略就是根据条件【选择】不同实现方式，比如我要去北京出差，就有多种【出行方式】（飞机、火车、开车等），但是具体选那种方案是由特定的条件决定的，这就是策略
+
+一般策略接口定义了目标，而子类实现不同的方式方案
+
+```java
+interface RouteStrategy {
+    Route getRoute(Location start, Location end);
+}
+
+class ShortestTimeStrategy implements RouteStrategy {
+    @Override
+    public Route getRoute(Location start, Location end) {
+        // 计算最短时间的路径
+    }
+}
+
+class CheapestStrategy implements RouteStrategy {
+    @Override
+    public Route getRoute(Location start, Location end) {
+        // 计算价格最便宜的路径
+    }
+}
+```
+
+在使用时，只需要根据配置条件就可以进行【策略替换】，当需要新的策略时，只需要新增一个实现类，而不需要修改现有代码。
+
+```java
+RouteStrategy strategy;
+if (userChoice == UserChoice.SHORTEST_TIME) {
+    strategy = new ShortestTimeStrategy();
+} else if (userChoice == UserChoice.CHEAPEST) {
+    strategy = new FewestTrafficLightsStrategy();
+}
+Route route = strategy.getRoute(start, end);
+```
+
+
+
+#### 2. 适配器 Adapter
+
+
+
+#### 3. 过滤器 Filter
+
+过滤器就是根据条件进行匹配 match，留下（过滤出）目标值
+
+
+
+#### 4. 访问者 Visitor 
+
+解决什么问题？
+
+为一个类型层次结构中的元素添加新的操作，将该操作与元素本身隔离出来，保持元素的聚合
+
+本质？
+
+使原来的类型结构保持独立，同时为其他【外部逻辑】提供访问自身的【入口】，即访问者
+
+<img src="./images/image-20230518093628769.png" alt="image-20230518093628769" style="zoom:50%;" width="450"/>
+
+```java
+public class VisitorDemo {
+  
+    interface Shape {
+        void draw();
+        void accept(Visitor visitor); // 提供访问点
+    }
+
+    static class Dot implements Shape {
+        public Dot() {}
+        @Override
+        public void draw() {
+            // ...
+        }
+        @Override
+        public void accept(Visitor visitor) {
+            visitor.visit(this); // 委托给visitor
+        }
+    }
+
+    static class Circle implements Shape {
+        public Circle() {}
+        @Override
+        public void draw() {
+            // ...
+        }
+        @Override
+        public void accept(Visitor visitor) {
+            visitor.visit(this); // 委托给visitor
+        }
+    }
+
+    interface Visitor { 
+        void visit(Dot dot);
+        void visit(Circle circle);
+    }
+
+    class XMLExportVisitor implements Visitor {
+        @Override
+        public void visit(Dot dot) {
+            System.out.println("Exporting dot to XML");
+        }
+        @Override
+        public void visit(Circle circle) {
+            System.out.println("Exporting circle to XML");
+        }
+    }
+
+    public static void main(String[] args) {
+        Shape dot = new Dot();
+        Shape circle = new Circle();
+        Visitor visitor = new VisitorDemo().new XMLExportVisitor();
+        dot.accept(visitor);
+        circle.accept(visitor);
+      
+      	// output:
+        // Exporting dot to XML
+        // Exporting circle to XML
+    }
+
+}
+```
+
 #### 6.1 工厂
 
 #### 6.2 代理
