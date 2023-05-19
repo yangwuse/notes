@@ -108,17 +108,72 @@ public static void main(String[] args) {
 
 
 
-通过通配符？也可以实现泛型之间的继承关系
+通配符？一般只用于方法参数类型
+
+通过【有界通配符？】也可以实现泛型之间的继承关系
 
 ```java
-// Box<Integer> 是 Box<? extends Nubmer> 子类
-public void boxTest(Box<? extends Number> n) { /* ... */ }
+public void printList(List<? extends Number> list) { /* ... */ }
 
-boxTest(new Box<Integer>(10));   // OK
-boxTest(new Box<Double>(10.1));  // OK
+printList(List.of(1, 2, 3));        // OK List<Integer> 是 List<? extends Nubmer> 子类
+
+printList(List.of(1.0, 2.0, 3.0));  // OK List<Double> 是 List<? extends Nubmer> 子类
 ```
 
-<img src="./images/image-20230519153030690.png" alt="image-20230519153030690" style="zoom:50%;" width="450"/>
+<img src="./images/image-20230519165031156.png" alt="image-20230519165031156" style="zoom:50%;" width="450"/>
+
+
+
+无界通配符？，用来表示【未知类型】，比如 List<?> 表示一个未知类型的list
+
+```java
+List<Object> 可以添加 Object 子类型的元素（包括Object自身）
+  
+List<?> 只能添加 null，因为 ？ 表示未知类型
+```
+
+
+
+无界通配符？也可实现泛型继承
+
+```java
+public void printList(List<Object> list) {} // 只能传入 List<Object> 类型
+
+public void printList(List<?> list) {} // 可传入任何类型的List
+
+public <T> void printList(List<T> list) {} // 等价与
+```
+
+<img src="./images/image-20230519162115381.png" alt="image-20230519162115381" style="zoom:50%;" width="450"/>
+
+
+
+上界通配符<? super T> 表示类型 T 或 T 的父类型，表示的类型范围更广，方法更灵活
+
+
+
+通配符捕获，即编译器通过类型推测，【确定？的具体类型】，如果不能确定，代码不能通过类型检查
+
+<img src="./images/image-20230519172908343.png" alt="image-20230519172908343" style="zoom:50%;" width="450"/>
+
+```java
+void foo(List<?> l) {   // 编译器推测 l 为 Object 类型
+    l.set(0, l.get(0)); // error, 编译器推测 l.get(0) 为 Object 类型，不能确定它的具体类型
+}
+
+void foo(List<?> l) {
+  fooHelper(l);
+}
+
+void <T> fooHelper(List<T> l) { // 编译器推测 l 为 List<T> 类型，【将 ? 具体化 T】
+  l.set(0, l.get(0)); // ok, 编译器推测 l.get(0) 为 T 类型
+}
+
+List<? extends Number> ln = new ArrayList<>();
+ln.add(new Integer(1)); // error, add方法的类型为 capture of ? extends NaturalNumber，而不是 Number 子类
+```
+
+
 
 
 
