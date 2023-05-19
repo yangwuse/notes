@@ -2,11 +2,134 @@
 
 # 一、Java 基础
 
-## 1. 多线程
+## 1. 语法
 
-### 1.1 线程池
+### 泛型
 
-#### 1.1.1 ThreadPoolExecutor
+https://docs.oracle.com/javase/tutorial/java/generics/inheritance.html
+
+泛型别名参数化类型（parametered type），本质是一个【类或接口+类型变量】
+
+```java
+class Box<T> {}  
+interface Comparable<T> {}
+```
+
+既然T是个类型参数，那么怎么给 T 赋值呢？
+
+```java
+Box<Integer> box = new Box<>(); // Integer 赋值给 T，同时使用类型推测 <>
+// 注意：Integer 叫 argument，T 叫 parameter
+```
+
+T 的作用域分类作用域和方法作用域
+
+```java
+class Box<T> { // T 作用于整个类
+	 private T value;
+   public T getValue() {return value;}
+}
+
+// 在方法中引入类型变量 <T>，声明在返回类型前
+public static <T> void compare(T[] array, T ele) { // T 限于该方法内
+}
+```
+
+有界参数化类型，对T做限制
+
+```java
+// T 是 Comparable<T> 的子类，或者 Comparable<T> 是 T 的上界
+public static <T extends Comparable<T>> void compare(T[] array, T ele) {
+    for (T t : array) {
+        if (t.compareTo(ele) > 0) {
+            System.out.println(t);
+        }
+    }
+}
+```
+
+可以有多个上界，但是类先于接口
+
+```java
+Class A { /* ... */ }
+interface B { /* ... */ }
+interface C { /* ... */ }
+
+class D <T extends A & B & C> { /* ... */ }
+```
+
+类型参数T有继承结构，但泛型Box<T>的继承结构容易理解错误
+
+```java
+// Integer 和 Double 是 Number 的子类
+public void someMethod(Number n) { /* ... */ }
+
+someMethod(new Integer(10));   // OK
+someMethod(new Double(10.1));   // OK
+
+Box<Number> box = new Box<>();
+box.add(new Integer(10));   // OK
+box.add(new Double(10.1));  // OK
+
+// 但是对于下面这个方法，类型不兼容，Box<Integer> 和 Box<Double> 不是 Box<Number> 的子类
+public void boxTest(Box<Number> n) { /* ... */ }
+
+boxTest(new Box<Integer>(10));   // error
+boxTest(new Box<Double>(10.1));  // error
+```
+
+<img src="./images/image-20230519114438694.png" alt="image-20230519114438694" style="zoom:50%;" width="450"/>
+
+典型的泛型继承结构是jdk中的 ArrayList<E>
+
+```java
+public class ArrayList<E> implements List<E> {}
+
+public interface List<E> extends Collection<E> {}
+
+ArrayList<E> 是 List<E> 的子类, List<E> 是 Collection<E> 的子类
+```
+
+通过通配符？可以实现泛型之间的继承关系
+
+```java
+// Box<Integer> 是 Box<? extends Nubmer> 子类
+public void boxTest(Box<? extends Number> n) { /* ... */ }
+
+boxTest(new Box<Integer>(10));   // OK
+boxTest(new Box<Double>(10.1));  // OK
+```
+
+
+
+### 静态类型 vs 动态类型
+
+https://docs.oracle.com/cd/E57471_01/bigData.100/extensions_bdd/src/cext_transform_typing.html
+
+Java 是静态类型、强类型语言，在编译时就检查变量、对象的类型，及早发现错误
+
+Groovy 是动态类型语言，在运行时检查类型，容易导致书写错误，因为每次赋值都创建一个变量
+
+```java
+// Java example
+int num;
+num = 5;
+
+// Groovy example
+num = 5
+
+// Groovy example
+number = 5
+numbr = (number + 15) / 2  // note the typo，此处书写错误，导致创建新的变量 numbr，而不是赋值 number 
+```
+
+
+
+## 多线程
+
+### 线程池
+
+#### ThreadPoolExecutor
 
 1. 原理：重用线程，实现任务的并发执行和系统资源的合理使用
 
@@ -24,13 +147,13 @@
 
       
 
-#### 1.1.2 Executors
+#### Executors
 
 
 
-### 1.2 同步工具
+### 同步工具
 
-#### 1.2.1 数据竞争
+#### 数据竞争
 
 <img src="./images/image-20230513025204800.png" alt="image-20230513025204800" style="zoom:33%;" width="450"/>
 
@@ -40,7 +163,7 @@
 
 多线程并发读写同一个共享变量，会导致数据错误，本质是【更新】不是原子操作（读，修改，写），因此必须同步共享变量的读写，保证写变量的【原子性】
 
-#### 1.2.2 轻量级同步工具
+#### 轻量级同步工具
 
 1. 使用【atomic】原子类
 
@@ -215,9 +338,9 @@
 
 
 
-## 2. JVM
+## JVM
 
-### 2.1 内存模型
+### 内存模型
 
 <img src="./images/image-20230513010300231.png" alt="image-20230513010300231" style="zoom:50%;" width="450"/>
 
@@ -734,6 +857,10 @@ public class VisitorDemo {
 
 }
 ```
+
+https://refactoring.guru/design-patterns/visitor
+
+https://en.wikipedia.org/wiki/Visitor_pattern#:~:text=In%20object%2Doriented%20programming%20and,structures%20without%20modifying%20the%20structures.
 
 #### 6.1 工厂
 
