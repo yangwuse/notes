@@ -80,17 +80,35 @@ boxTest(new Box<Double>(10.1));  // error
 
 <img src="./images/image-20230519114438694.png" alt="image-20230519114438694" style="zoom:50%;" width="450"/>
 
-典型的泛型继承结构是jdk中的 ArrayList<E>
+
+
+要实现泛型继承结构，需要通过 extends 和 implements，典型的泛型继承结构是jdk中的 ArrayList<E>
 
 ```java
 public class ArrayList<E> implements List<E> {}
 
 public interface List<E> extends Collection<E> {}
-
-ArrayList<E> 是 List<E> 的子类, List<E> 是 Collection<E> 的子类
 ```
 
-通过通配符？可以实现泛型之间的继承关系
+<img src="./images/image-20230519151519853.png" alt="image-20230519151519853" style="zoom:50%;" width="450"/>
+
+手动继承 ArrayList<E>，定义泛型继承关系
+
+```java
+static class Box<E, T> extends ArrayList<E> {}
+
+public static void main(String[] args) {
+    List<String> list1 = new Box<String, String>();
+    List<String> list2 = new Box<String, Integer>();
+    List<String> list3 = new Box<String, Exception>();
+}
+```
+
+<img src="./images/image-20230519152755138.png" alt="image-20230519152755138" style="zoom:50%;" width="450"/>
+
+
+
+通过通配符？也可以实现泛型之间的继承关系
 
 ```java
 // Box<Integer> 是 Box<? extends Nubmer> 子类
@@ -99,6 +117,8 @@ public void boxTest(Box<? extends Number> n) { /* ... */ }
 boxTest(new Box<Integer>(10));   // OK
 boxTest(new Box<Double>(10.1));  // OK
 ```
+
+<img src="./images/image-20230519153030690.png" alt="image-20230519153030690" style="zoom:50%;" width="450"/>
 
 
 
