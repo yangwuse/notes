@@ -108,7 +108,15 @@ public static void main(String[] args) {
 
 
 
-通配符？一般只用于方法参数类型
+泛型中的通配符？，表示【未知】的泛型类型，区别于普通泛型【已知】的类型
+
+```java
+public void printList(List<? extends Number> list){} // ？表示未知，编译器不能推测类型
+
+public <T> void printList(List<T> list){} // T 表示已知类型，编译器能进行类型推测
+```
+
+
 
 通过【有界通配符？】也可以实现泛型之间的继承关系
 
@@ -165,15 +173,25 @@ void foo(List<?> l) {
   fooHelper(l);
 }
 
-void <T> fooHelper(List<T> l) { // 编译器推测 l 为 List<T> 类型，【将 ? 具体化 T】
+void <T> fooHelper(List<T> l) { // 给编译器提供一个具体类型 T，编译器类型捕获（在这里是<T>）
   l.set(0, l.get(0)); // ok, 编译器推测 l.get(0) 为 T 类型
 }
 
-List<? extends Number> ln = new ArrayList<>();
-ln.add(new Integer(1)); // error, add方法的类型为 capture of ? extends NaturalNumber，而不是 Number 子类
 ```
 
 
+
+PECS原则（Producer Extends Consumer Super）
+
+List<? extends T>常用在从列表中获取T【只读】，如果需要向列表中添加元素，应该使用List<? super T>
+
+```java
+List<? extends Number> ln = new ArrayList<>();
+ln.add(1); // error
+
+List<? super Number> ln = new ArrayList<>();
+ln.add(1); // ok
+```
 
 
 
@@ -743,19 +761,21 @@ public class BeansIocApplication {
 
       
 
-#### 2.1.2 Spring 事务
 
-1. 原理：
-2. 特性：
-3. 应用场景：
-   1. @Transaction 注解
 
-#### 2.1.3 AOP 切面
+#### AOP 切面
 
 1. 原理：
 2. 特性：
 3. 应用场景：
    1. AOPContext 
+
+#### Spring 事务
+
+1. 原理：
+2. 特性：
+3. 应用场景：
+   1. @Transaction 注解
 
 #### 2.1.3 依赖注入
 
@@ -862,11 +882,15 @@ Route route = strategy.getRoute(start, end);
 
 解决什么问题？
 
-为一个类型层次结构中的元素添加新的操作，将该操作与元素本身隔离出来，保持元素的聚合
+把额外的操作逻辑从一个类型结构中独立出来，放在一个单独的接口中，保持原来类型结构的聚合
 
 本质？
 
 使原来的类型结构保持独立，同时为其他【外部逻辑】提供访问自身的【入口】，即访问者
+
+如何实现？
+
+类型结构必须开放【访问点】，供外部访问者访问数据
 
 <img src="./images/image-20230518093628769.png" alt="image-20230518093628769" style="zoom:50%;" width="450"/>
 
@@ -875,7 +899,7 @@ public class VisitorDemo {
   
     interface Shape {
         void draw();
-        void accept(Visitor visitor); // 提供访问点
+        void accept(Visitor visitor); // 开放【访问点】
     }
 
     static class Dot implements Shape {
@@ -932,6 +956,10 @@ public class VisitorDemo {
 
 }
 ```
+
+
+
+该模式的替换：https://github.com/nurkiewicz/typeof
 
 https://refactoring.guru/design-patterns/visitor
 
