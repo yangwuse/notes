@@ -975,7 +975,13 @@ https://en.wikipedia.org/wiki/Visitor_pattern#:~:text=In%20object%2Doriented%20p
 
 
 
+# 七、军规
 
+1. 蚂蚁军规
+
+   <img src="./images/image-20230525222401259.png" alt="image-20230525222401259" style="zoom:40%;" width="450" />
+
+2. 
 
 
 
