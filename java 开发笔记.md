@@ -806,9 +806,15 @@ public class BeansIocApplication {
 
 # 四、数据库
 
-#### 4.1 MySQL
+## 4.1 MySQL
 
-#### 4.2 SQL 优化
+## 4.2 分库分表
+
+
+
+## 4.3 分布式事务
+
+## 4.2 SQL 优化
 
 
 
