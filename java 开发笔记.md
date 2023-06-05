@@ -547,11 +547,13 @@ https://chat.openai.com/c/4952150e-9804-413c-8224-4fc3c21dd2ce
 
 # 二、算法
 
-## 1. 数组
+## 1. 剑指 Offer 67题
 
-#### [剑指 Offer 04. 二维数组中的查找](https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/)
+#### [二维数组中的查找](https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/)
 
 <img src="./images/image-20230605153640862.png" alt="image-20230605153640862" style="zoom:50%;" width="450"/>
+
+
 
 题目标签【找规律】【逆向思维】
 
@@ -582,7 +584,7 @@ public boolean findNumberIn2DArray(int[][] matrix, int target) {
 
 
 
-#### [剑指 Offer II 063. 替换单词](https://leetcode.cn/problems/UhWRSj/)
+#### [替换单词](https://leetcode.cn/problems/UhWRSj/)
 
 <img src="./images/image-20230605161821556.png" alt="image-20230605161821556" style="zoom:50%;" width="450" />
 
@@ -678,6 +680,50 @@ class Trie {
 ```
 
 [参考题解](https://leetcode.cn/problems/UhWRSj/solution/ti-huan-dan-ci-by-leetcode-solution-9reh/)
+
+
+
+#### [从尾到头打印链表](https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)
+
+<img src="./images/image-20230605185338109.png" alt="image-20230605185338109" style="zoom:50%;" width="450"/>
+
+题目标签【递归】【栈】
+
+题目分析：一种是先计算链表长度，然后再从数组尾部向头顺序插入；或者使用递归或栈
+
+```java
+    public int[] reversePrint(ListNode head) {
+        int len = 0;
+        ListNode tmp = head;
+        while (head != null) {
+            len++;
+            head = head.next;
+        }
+        int[] result = new int[len];
+        head = tmp;
+        while (head != null) {
+            result[--len] = head.val;
+            head = head.next;
+        }
+        return result;
+    }
+		
+		// 递归，其实也是先到达链表尾部，再在返回的时候添加值
+    ArrayList<Integer> tmp = new ArrayList<Integer>();
+    public int[] reversePrint(ListNode head) {
+        recur(head);
+        int[] res = new int[tmp.size()];
+        for(int i = 0; i < res.length; i++)
+            res[i] = tmp.get(i);
+        return res;
+    }
+    void recur(ListNode head) {
+        if(head == null) return;
+        recur(head.next);
+        tmp.add(head.val);
+    }
+
+```
 
 
 
