@@ -545,9 +545,82 @@ https://chat.openai.com/c/4952150e-9804-413c-8224-4fc3c21dd2ce
 
 
 
+# 二、算法
+
+## 1. 数组
+
+#### [剑指 Offer 04. 二维数组中的查找](https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/)
+
+<img src="./images/image-20230605153640862.png" alt="image-20230605153640862" style="zoom:50%;" width="450"/>
+
+题目标签【找规律】【逆向思维】
+
+题目分析：正向思维，从【左上角】向左向下遍历都是大于方向，没法判断路径。起点不对导致遍历方向错误。同理，从【右下角】向上和向左都是小于，同样无法判断路径。因此，从【左下角】或【右上角】，遍历方向一大一小，就可以判断路径。
+
+```java
+public boolean findNumberIn2DArray(int[][] matrix, int target) {
+        // 异常判断
+        if (matrix == null) return false;
+        int n = matrix.length;
+        if (n == 0) return false;
+        int m = matrix[0].length;
+        if (m == 0) return false;
+
+        // 从右上角遍历，相当于二叉树遍历
+        int i = 0, j = m - 1;
+        while (i < n && j >= 0) {
+            if (target == matrix[i][j]) return true;
+            else if (target > matrix[i][j]) i++;
+            else j--;
+        }
+
+        return false;
+    }
+```
+
+[参考题解](https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/solution/mian-shi-ti-04-er-wei-shu-zu-zhong-de-cha-zhao-zuo/)
 
 
-# 二、框架
+
+#### [剑指 Offer II 063. 替换单词](https://leetcode.cn/problems/UhWRSj/)
+
+<img src="./images/image-20230605161821556.png" alt="image-20230605161821556" style="zoom:50%;" />
+
+题目标签【hash】【前缀树】
+
+题目分析：
+
+hash 的思路是用空间换时间，hash 字典，在字典中查单词时间0(1)，然后用句子中的【单词前缀】在hash中查找。
+
+```java
+public String replaceWords(List<String> dictionary, String sentence) {
+    Set<String> hash = new HashSet<>();
+    for (String word : dictionary) {
+        hash.add(word);
+    }
+
+    String[] words = sentence.split(" ");
+    for (int i = 0; i < words.length; i++) {
+        String word = words[i];
+        // 遍历单词所有的前缀
+        for (int j = 1; j <= word.length(); j++) {
+            String prefixStr = word.substring(0, j);
+            if (hash.contains(prefixStr)) {
+                words[i] = prefixStr;
+                break;
+            }
+        }
+    }
+
+    return String.join(" ", words);
+}
+```
+
+
+
+
+
+# 三、框架
 
 ## 1. Spring
 
