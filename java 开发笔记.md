@@ -586,7 +586,9 @@ public boolean findNumberIn2DArray(int[][] matrix, int target) {
 
 <img src="./images/image-20230605161821556.png" alt="image-20230605161821556" style="zoom:50%;" width="450" />
 
-题目标签【hash】【前缀树】
+
+
+题目标签【hash】【前缀树 Trie】
 
 题目分析：
 
@@ -616,7 +618,66 @@ public String replaceWords(List<String> dictionary, String sentence) {
 }
 ```
 
+Trie 树，前缀树，本质是一个 map<Character, Trie>
 
+<img src="./images/image-20230605174218617.png" alt="image-20230605174218617" style="zoom:30%;" width="450" />
+
+Trie 数据结构
+
+```java
+class Trie {
+    Map<Character, Trie> children;
+  
+    public Trie() {
+        children = new HashMap<Character, Trie>();
+    }
+}
+```
+
+```java
+class Solution {
+    public String replaceWords(List<String> dictionary, String sentence) {
+        // 用字典构建前缀树
+        Trie trie = new Trie();
+        for (String dict : dictionary) {
+            Trie cur = trie;
+            for (char ch : dict.toCharArray()) {
+                cur.children.putIfAbsent(ch, new Trie());
+                cur = cur.children.get(ch);
+            }
+          	// 单词结束标记，注意值是一个新的前缀树
+            cur.children.put('#',  new Trie()); 
+        }
+      
+        String[] words = sentence.split(" ");
+        for (int i = 0; i < words.length; i++) {
+            words[i] = findPrefix(words[i], trie);
+        }
+        return String.join(" ", words);
+    }
+
+    public String findPrefix(String word, Trie trie) {
+        Trie cur = trie;
+        StringBuilder preFix = new StringBuilder();
+        for (char ch : word.toCharArray()) {
+            if (cur.children.containsKey('#')) return preFix.toString();
+            if (!cur.children.containsKey(ch)) return word;
+            preFix.append(ch);
+            cur = cur.children.get(ch);
+        }
+        return preFix.toString();
+    }
+}
+
+class Trie {
+    Map<Character, Trie> children;
+    Trie() {
+        children = new HashMap<>();
+    }
+}
+```
+
+[参考题解](https://leetcode.cn/problems/UhWRSj/solution/ti-huan-dan-ci-by-leetcode-solution-9reh/)
 
 
 
