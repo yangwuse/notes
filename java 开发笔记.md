@@ -584,7 +584,7 @@ public boolean findNumberIn2DArray(int[][] matrix, int target) {
 
 #### [剑指 Offer II 063. 替换单词](https://leetcode.cn/problems/UhWRSj/)
 
-<img src="./images/image-20230605161821556.png" alt="image-20230605161821556" style="zoom:50%;" widt="450"/>
+<img src="./images/image-20230605161821556.png" alt="image-20230605161821556" style="zoom:50%;" width="450" />
 
 题目标签【hash】【前缀树】
 
