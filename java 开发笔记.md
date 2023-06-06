@@ -727,6 +727,44 @@ class Trie {
 
 
 
+#### [重建二叉树](https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/)
+
+<img src="./images/image-20230606220705915.png" alt="image-20230606220705915" style="zoom:50%;" width="450"/>
+
+题目标签【递归】
+
+题目分析：前序遍历结构为[ 根节点, [左子树], [右子树] ]，中序遍历结构为 [ [左子树], 根节点, [右子树] ]，[左/右子树] 在中序遍历和前序遍历【节点个数相同】
+
+```java
+		// value -> index 映射
+    private Map<Integer, Integer> map = new HashMap<>();
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        if (preorder == null || preorder.length == 0) return null;
+        for (int i = 0; i < inorder.length; i++) {
+            map.put(inorder[i], i);
+        }
+        return doBuildTree(preorder, 0, preorder.length - 1, 
+                            inorder, 0, inorder.length - 1);
+    }
+
+    private TreeNode doBuildTree(int[] preorder, int preorderLeft, int preorderRight, int[] inorder, int inorderLeft, int inorderRight) {
+        if (preorderLeft > preorderRight) return null;
+
+        int headVal = preorder[preorderLeft];
+        TreeNode head = new TreeNode(headVal);
+        int inorderMidIdx = map.get(headVal);
+      	// 用于确定前序遍历左子树右边界
+        int len = inorderMidIdx - inorderLeft;
+        head.left = doBuildTree(preorder, preorderLeft + 1, preorderLeft + len, inorder, inorderLeft, inorderMidIdx - 1);
+        head.right = doBuildTree(preorder, preorderLeft + len + 1, preorderRight, inorder, inorderMidIdx + 1, inorderRight);
+        return head;
+    }
+```
+
+[参考题解](https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/solution/mian-shi-ti-07-zhong-jian-er-cha-shu-by-leetcode-s/)
+
+
+
 # 三、框架
 
 ## 1. Spring
