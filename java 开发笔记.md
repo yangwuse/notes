@@ -832,6 +832,41 @@ class Trie {
 
 
 
+#### [在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
+
+<img src="./images/image-20230607183616257.png" alt="image-20230607183616257" style="zoom:50%;" width="450"/>
+
+题目标签【二分】【卡点】
+
+题目分析：找开始位置思路是，j = m ，i 不断靠近 j ，直到 i == j，此时 i 为开始位置，因为 a[i] <= target。找结束位置思路是，i = m + 1 不断靠近 j，直到 i 刚好超过 j，此时 i - 1 就是结束位置，因为 a[j] >= target。
+
+```java
+public int[] searchRange(int[] nums, int target) {
+        int[] res = new int[] {-1, -1};
+        int n = nums.length;
+        if (n == 0) return res;
+
+        int i = 0, j = n - 1;
+        while (i < j) {
+            int m = i + ((j - i) >> 1);
+            if (nums[m] > target) j = m - 1;
+            else if (nums[m] < target) i = m + 1;
+            else j = m;
+        }
+        if (nums[i] == target) {
+            res[0] = i;
+        }
+        i = 0; j = n - 1;
+        while (i <= j) {
+            int m = i + ((j - i) >> 1);
+            if (nums[m] > target) j = m - 1;
+            else if (nums[m] <= target) i = m + 1;
+        }
+        if (i - 1 >= 0 && nums[i - 1] == target) res[1] = i - 1;
+        return res;
+    }
+```
+
 
 
 # 三、框架
