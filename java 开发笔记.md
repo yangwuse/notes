@@ -765,6 +765,75 @@ class Trie {
 
 
 
+#### [用两个栈实现队列](https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)
+
+<img src="./images/image-20230607111144724.png" alt="image-20230607111144724" style="zoom:50%;" width="450"/>
+
+题目标签【栈翻转】
+
+题目分析：栈和队列的元素顺序相反，需要另外一个栈用来【翻转顺序】
+
+```java
+		private Deque<Integer> stackIn;
+    private Deque<Integer> stackOut;
+    public CQueue() {
+        stackIn = new LinkedList<>();
+        stackOut = new LinkedList<>();
+    }
+    
+    public void appendTail(int value) {
+        stackIn.addLast(value);
+    }
+    
+    public int deleteHead() {
+        if (stackIn.size() == 0 && stackOut.size() == 0) return -1;
+      	// 如果出栈为空，将入栈元素翻转到出栈
+        if (stackOut.size() == 0) {
+            while (stackIn.size() > 0) {
+                stackOut.addLast(stackIn.removeLast());
+            }
+        }    
+        return stackOut.removeLast();
+    }
+```
+
+
+
+#### [旋转数组的最小数字](https://leetcode.cn/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/)
+
+<img src="./images/image-20230607153203003.png" alt="image-20230607153203003" style="zoom:50%;" width="450"/>
+
+题目标签【二分】【卡点】
+
+题目分析：二分原则是每次循环【至少排除一个元素】，要么移动 i，要么移动 j
+
+（1）当a[m] > a[j]，说明 m 在左区间，a[i, m] > a[j]，移动 i，i = m + 1，排除 a[i, m]
+
+（2）当a[m] < a[j]，说明m在右区间，a(m, j] > a[x]，移动 j，j = m（a[m] 可能为最小值），排除a[m+1, j]
+
+ （3）当a[m] == a[j] ，不确定m在哪个区间，比如：1 0 [1] 1 1，m 在右区间，1 1 [1] 0 1，m 在左区间，所以不确定移动i还是j，由于 a[i] 有可能就是最小元素，如 1 2 2，故不能移动i，只能移动j，但是又不能将j移动太多，因为最小值有可能在 [m，j]中，如 1 1 [1] 0 1 ，所有只能 j = j - 1，排除一个元素。
+
+<img src="./images/image-20230607153828003.png" alt="image-20230607153828003" style="zoom:50%;" width="450"/>
+
+```java
+    public int minArray(int[] numbers) {
+        int n = numbers.length;
+        int i = 0, j = n - 1;
+        while (i < j) { // a[i] >= min 恒等
+            int m = i + ((j - i) >> 1);
+            if (numbers[m] > numbers[j]) i = m + 1;
+            else if (numbers[m] < numbers[j]) j = m; // 不排除 a[m]，a[m] 可能为最小值
+            else j = j - 1; // 只能排除 a[j]
+        }
+
+        return numbers[i];
+    }
+```
+
+
+
+
+
 # 三、框架
 
 ## 1. Spring
