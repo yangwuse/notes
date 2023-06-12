@@ -869,6 +869,49 @@ public int[] searchRange(int[] nums, int target) {
 
 
 
+#### [跳台阶扩展问题](https://www.nowcoder.com/practice/22243d016f6b47f2a6928b4313c85387?tpId=13&&tqId=11162&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+<img src="./images/image-20230612091501187.png" alt="image-20230612091501187" style="zoom:33%;" width="450"/>
+
+题目标签【dp】
+
+题目分析：逆向分析最后一步，最后一步可跳 1 2 3 ... n 阶，最后一步无论选择跳多少阶，跳法（选择数）为1。
+
+ f(n)为n阶台阶跳法数，f(n) = f(n-1) +  f(n-2) ... f(n-n)，f(n-1) = f(n-2) + f(n-3) + ... + f(0)，f(n) = 2*f(n-1)
+
+```java
+// 递归
+public int jumpFloorII(int target) {
+    if (target == 1) return 1;
+    return 2*jumpFloorII(target-1);
+}
+
+// 数学：f(n) = 2 * f(n-1) => f(n) = 2^n-1
+public int jumpFloorII(int target) {
+    return (int)Math.pow(2, target - 1);
+}
+```
+
+
+
+#### [矩形覆盖](https://www.nowcoder.com/practice/72a5a919508a4251859fb2cfb987a0e6?tpId=13&&tqId=11163&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+<img src="./images/image-20230612095729796.png" alt="image-20230612095729796" style="zoom:33%;" width="450"/>
+
+题目标签【找规律】【技巧】
+
+题目分析：感觉是dp，但是不确定，画图分析 2 * 1 和 2 * 2 的图形
+
+<img src="./images/image-20230612095944502.png" alt="image-20230612095944502" style="zoom:33%;" width="450"/>
+
+n == 3，由 n==2 在后面竖着放一个 + 由 n == 1 在后面横着放两个（排除在 n==1后面竖着放两个，与n==2后面竖着放一个重复）
+
+即，f(3) = f(2) + f(1) => f(n) = f(n-1) + f(n-2)，斐波拉契数列
+
+
+
+
+
 # 三、框架
 
 ## 1. Spring
