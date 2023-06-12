@@ -910,6 +910,49 @@ n == 3，由 n==2 在后面竖着放一个 + 由 n == 1 在后面横着放两个
 
 
 
+#### [二进制中1的个数](https://www.nowcoder.com/practice/8ee967e43c2c4ec193b040ea7fbb10b8?tpId=13&&tqId=11164&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+<img src="./images/image-20230612111251161.png" alt="image-20230612111251161" style="zoom:50%;" width="450"/>
+
+题目标签【找规律】【技巧】
+
+题目分析：n 循环右移1位，然后判断最后一位是否是 1，符号右移 >> 对于负数高位补1，用无符号右移 >>>，高位补0
+
+```java
+public int NumberOf1(int n) {
+    int res = 0;
+    while(n != 0) {
+        res += n & 1;
+        n >>>= 1;
+    }
+    return res;
+}
+
+// 或者 1 循环左移
+public int NumberOf1(int n) {
+    int res = 0;
+    for (int i = 0; i < 32; i++) {
+        if ((n & (1 << i)) != 0) res++;
+    }
+    return res;
+}
+```
+
+n * (n-1) 【消去二进制数最右边的1】，如果结果不为0，说明最右边【存在一位二进制1】，间接地统计二进制1的个数
+
+<img src="./images/image-20230612113327162.png" alt="image-20230612113327162" style="zoom:50%;" width="450"/>
+
+```java
+public int NumberOf1(int n) {
+    int res = 0;
+    while (n != 0) {
+        res++;
+        n &= n - 1;
+    }
+    return res;
+}
+```
+
 
 
 # 三、框架
