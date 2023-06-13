@@ -955,6 +955,49 @@ public int NumberOf1(int n) {
 
 
 
+#### [数值的整数次方](https://www.nowcoder.com/practice/1a834e5e3e1a4b7ba251417554e07c00?tpId=13&&tqId=11165&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+<img src="./images/image-20230613104329640.png" alt="image-20230613104329640" style="zoom:33%;" width="450"/>
+
+题目标签【分治】
+
+题目分析: 常规方法 $\ x^y = x*x\,*\,...\,x$, 循环 y 次，故先处理指数 < 0 的情况，$\ x^{(-y)} = (\frac{1}{x})^y$，将 y 变为正数
+
+```java
+    public double Power(double base, int exponent) {
+        if (exponent < 0) {
+            base = 1/base;
+            exponent = -exponent;
+        }
+        double result = 1.0;
+        for (int i = 0; i < exponent; i++) {
+            result *= base;
+        }
+        return result;
+    }
+```
+
+上面时间复杂度0(n)，n = y；同时，$\ x^y = x^{\frac{y}{2}}*x^{\frac{y}{2}}$，可以通过分治方法进行二分，时间复杂度$\ O(log_2^n)$
+
+
+```java
+    public double Power(double base, int exponent) {
+        if (exponent < 0) {
+            base = 1/base;
+            exponent = -exponent;
+        }
+        return Pow(base, exponent);
+    }
+
+    public double Pow(double x, int y) {
+        if (y == 0) return 1;
+        if (y == 1) return x;
+        return Pow(x, y >> 1) * Pow(x, y - (y >> 1));
+    }
+```
+
+
+
 # 三、框架
 
 ## 1. Spring
