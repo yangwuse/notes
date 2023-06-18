@@ -1444,6 +1444,59 @@ https://en.wikipedia.org/wiki/Visitor_pattern#:~:text=In%20object%2Doriented%20p
 
 
 
+# 八、Vim 快捷键
+
+## 1. 搜索 （/）
+
+-  全词匹配 hello:  
+
+  ```java
+  \> 是一个特殊的记号，表示只匹配单词末尾，\< 只匹配单词的开头
+  /\<hello\>
+  ```
+
+- 大小写：默认区分大小写
+
+  ```java
+  :set ignorecase   // 忽略大小写
+  :set noignorecase // 区分大小写
+  ```
+
+## 2. 复制（y）
+
+- 复制一个单词：yw
+- 复制多个单词：数字yw
+- 复制一行：yy / Y
+- 复制多行：数字yy
+- 选择复制：按 v 选择字符
+- 全部复制：ggyG
+- 全文复制到剪切板：gg  shift+v  shift+G   "+y
+
+## 3. 剪切、删除 （x、d、c）
+
+## 4. 粘贴  （p）
+
+- 粘贴在下一行：p
+- 粘贴在上一行：P
+- 从剪切板粘贴到文件："+p
+
+## 5. 删除  （d）
+
+- 删除一行：dd
+- 删除多行：数字dd
+
+## 6. 撤销 （u）
+
+
+
+
+
+# 九、linux 命令
+
+1. 不解压jar包，编辑内部文件：通过vim命令直接编辑jar，vim xxx.jar 该命令首先会列出全部文件，可以通过输入/abc来搜索，定位到对应的abc文件后回车进入配置文件内进行编辑
+2. 运行 jar 包：java -jar xxx.jar
+3. 
+
 
 
 
