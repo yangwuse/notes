@@ -1285,6 +1285,8 @@ public class BeansIocApplication {
 
 # 六、设计模式
 
+原则：隔离变化，代码复用，可维护可扩展
+
 #### 1. 策略接口（策略模式）
 
 策略就是根据条件【选择】不同实现方式，比如我要去北京出差，就有多种【出行方式】（飞机、火车、开车等），但是具体选那种方案是由特定的条件决定的，这就是策略
@@ -1428,7 +1430,37 @@ https://en.wikipedia.org/wiki/Visitor_pattern#:~:text=In%20object%2Doriented%20p
 
 #### 6.3 职责链
 
+定义：
 
+细节：
+
+```java
+
+```
+
+#### 6.3 模版方法
+
+定义：父类定义一个算法骨架，子类实现其中的某些步骤
+
+细节：父类为 abstract，模板方法为 final，避免子类重写算法骨架，可以为抽象方法提供默认实现
+
+```java
+public abstract class Foo {
+    // 模版
+    public final void bar() {
+        // 步骤1
+        firstMethod();
+        // 步骤2
+        secondMethod();
+        // 步骤2
+        thirdMethod();
+    }
+    
+    abstract void firstMethod();
+    abstract void secondMethod();
+    abstract void thirdMethod();
+}
+```
 
 
 
@@ -1471,6 +1503,7 @@ https://en.wikipedia.org/wiki/Visitor_pattern#:~:text=In%20object%2Doriented%20p
 - 选择复制：按 v 选择字符
 - 全部复制：ggyG
 - 全文复制到剪切板：gg  shift+v  shift+G   "+y
+- 精确复制多行（排除每行行首空格）：进入可视化块模式 ctr+v，然后选择多行复制到剪切板 "+y
 
 ## 3. 剪切、删除 （x、d、c）
 
