@@ -998,6 +998,109 @@ public int NumberOf1(int n) {
 
 
 
+#### [调整数组顺序使奇数位于偶数前面](https://www.nowcoder.com/practice/beb5aa231adc45b2a5dcc5b62c93f593?tpId=13&&tqId=11166&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+
+<img src="./images/image-20230621103433298.png" alt="image-20230621103433298" style="zoom:33%;" width="450"/>
+
+题目标签：【冒泡排序】
+
+```java
+	public void reOrderArray(int [] array) {
+        int n = array.length;
+        boolean exchanged = true; // 交换标记，如果某轮未交换，说明已经排好顺序
+        for (int i = 0; i < n - 1 && exchanged; i++) { 
+            exchanged = false;
+            for (int j = 0; j < n - 1 - i; j++) { 
+                if ((array[j]&1)==0 && (array[j+1]&1)==1) { // 每轮把偶数放到最后
+                    int tmp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = tmp;
+                    exchanged = true;
+                }
+            }
+        }
+    }
+```
+
+
+
+#### [链表中倒数第k个节点](https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/)
+
+<img src="./images/image-20230621121537266.png" alt="image-20230621121537266" style="zoom:33%;" width="450"/>
+
+
+
+题目标签：【双指针】
+
+题目分析：两个指针的间隙为k，当后面指针指向null时，前面指针正好为倒数第k个节点
+
+```java
+    public ListNode FindKthToTail(ListNode head,int k) {
+        ListNode fast = head, last = head;
+        while (k-- > 0) {
+            if (fast == null) return null; // k 超过链表长度，返回null
+            fast = fast.next;
+        }
+        while (fast != null) {
+            fast = fast.next;
+            last = last.next;
+        }
+        return last;
+    }
+```
+
+
+
+#### [树的子结构](https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/)
+
+<img src="./images/image-20230621135637711.png" alt="image-20230621135637711" style="zoom:33%;" width="450"/>
+
+题目标签：【dfs】
+
+题目分析：B 是 A 的子结构，即 A 包含 B 
+
+```java
+	public boolean isSubStructure(TreeNode A, TreeNode B) {
+        if (A == null || B == null) return false; 
+        boolean flag = dfs(A, B);
+        return flag || isSubStructure(A.left, B) || isSubStructure(A.right, B);
+
+    }
+    private boolean dfs(TreeNode A, TreeNode B) {
+        if (A == null) return B == null;
+        if (B == null) return true; // A 不为 null，B 为 null，B 是 A 子结构
+        
+        if (A.val != B.val) return false;
+        return dfs(A.left, B.left) && dfs(A.right, B.right);
+    }
+```
+
+
+
+#### [另一棵树的子树](https://leetcode.cn/problems/subtree-of-another-tree/)
+
+<img src="./images/image-20230621142653036.png" alt="image-20230621142653036" style="zoom:33%;" width="450"/>
+
+题目标签：【dfs】
+
+题目分析：子树：所有节点相同
+
+```java
+	public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+        if (root == null) return false;
+        return dfs(root, subRoot) || isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+
+    }
+    public boolean dfs(TreeNode root, TreeNode subRoot) {
+        if (root == null) return subRoot == null;
+        if (subRoot == null) return false; 
+        if (root.val != subRoot.val) return false;
+        return dfs(root.left, subRoot.left) && dfs(root.right, subRoot.right);
+    }
+```
+
+
+
 # 三、框架
 
 ## 1. Spring
@@ -1528,7 +1631,7 @@ public abstract class Foo {
 
 1. 不解压jar包，编辑内部文件：通过vim命令直接编辑jar，vim xxx.jar 该命令首先会列出全部文件，可以通过输入/abc来搜索，定位到对应的abc文件后回车进入配置文件内进行编辑
 2. 运行 jar 包：java -jar xxx.jar
-3. 
+3. 搜索查看某个进程：ps aux | grep mysql
 
 
 
