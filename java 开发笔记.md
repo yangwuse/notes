@@ -1101,6 +1101,44 @@ public int NumberOf1(int n) {
 
 
 
+#### [二叉树的镜像](https://leetcode.cn/problems/er-cha-shu-de-jing-xiang-lcof/)
+
+<img src="./images/image-20230623123421685.png" alt="image-20230623123421685" style="zoom:33%;" />
+
+题目标签：【dfs】【层次变量】
+
+```java
+    // dfs
+	public TreeNode mirrorTree(TreeNode root) {
+		if (root == null) return null;
+        TreeNode tmp = root.left;
+        root.left = root.right;
+        root.right = tmp;
+        mirrorTree(root.left);
+        mirrorTree(root.right);
+        return root;
+    }
+	
+	// 队列实现层次遍历
+	public TreeNode mirrorTree(TreeNode root) {
+        if (root == null) return null;
+        Deque<TreeNode> deque = new LinkedList<>();
+        deque.offerLast(root);
+        while (!deque.isEmpty()) {
+            TreeNode node = deque.pollFirst();
+            TreeNode tmp = node.left;
+            node.left = node.right;
+            node.right = tmp;
+            // null 不能入队
+            if (node.left != null)  deque.offerLast(node.left); 
+            if (node.right != null) deque.offerLast(node.right);
+        }
+        return root;
+    }
+```
+
+
+
 # 三、框架
 
 ## 1. Spring
