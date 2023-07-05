@@ -466,8 +466,8 @@ public class VolatileExample {
             number = 42; // 1. 写操作
             ready = true; // 2. 使用 volatile 保证写操作不会被重排序
         });
- 				writerThread.start();
-
+ 		
+        writerThread.start();
        
         while (!ready) {
             // 等待直到 ready 变为 true
