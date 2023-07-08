@@ -1139,6 +1139,83 @@ public int NumberOf1(int n) {
 
 
 
+#### [146. LRU 缓存](https://leetcode.cn/problems/lru-cache/)
+
+参考官方最优解
+
+```java
+class LRUCache {
+
+    class Node {
+        int key;
+        int value;
+        Node prev;
+        Node next;
+        Node() {}
+        Node(int k, int v) {key = k; value = v;}
+    }
+
+    private Map<Integer, Node> map = new HashMap<>();
+    private int size;
+    private int capacity;
+    private Node head, tail; // 伪头部和伪尾部，避免插入和删除元素时判断相邻元素是否为空
+
+    public LRUCache(int capacity) {
+        size = 0;
+        this.capacity = capacity;
+        head = new Node();
+        tail = new Node();
+        head.next = tail;
+        tail.prev = head;
+    }
+    
+    public int get(int key) {
+        Node node = map.get(key);
+        if (node == null) return -1;
+        moveToHead(node);
+        return node.value;
+    }
+    
+    public void put(int key, int value) {
+        Node node = map.get(key);
+        if (node == null) {
+            Node newNode = new Node(key, value);
+            addToHead(newNode);
+            map.put(key, newNode);
+            size++;
+            if (size > capacity) {
+                node = tail.prev;
+                removeNode(node);
+                map.remove(node.key);
+                size--;
+            }
+        } else {
+            node.value = value;
+            moveToHead(node);
+        }
+    }
+
+    private void moveToHead(Node node) {
+        removeNode(node);
+        addToHead(node);
+    }
+
+    private void removeNode(Node node) {
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+    }
+
+    private void addToHead(Node node) {
+        node.next = head.next;
+        head.next.prev = node;
+        head.next = node;
+        node.prev = head;
+    }
+}
+```
+
+
+
 # 三、框架
 
 ## 1. Spring
