@@ -1,0 +1,20 @@
+2023-07-15 11:41:34,381 INFO o.a.j.u.JMeterUtils: Setting Locale to en_CN
+2023-07-15 11:41:34,479 INFO o.a.j.JMeter: Loading user properties from: /Users/yangwu/lib/apache-jmeter-5.6/bin/user.properties
+2023-07-15 11:41:34,480 INFO o.a.j.JMeter: Loading system properties from: /Users/yangwu/lib/apache-jmeter-5.6/bin/system.properties
+2023-07-15 11:41:34,488 INFO o.a.j.JMeter: Copyright (c) 1998-2023 The Apache Software Foundation
+2023-07-15 11:41:34,488 INFO o.a.j.JMeter: Version 5.6
+2023-07-15 11:41:34,488 INFO o.a.j.JMeter: java.version=17.0.5
+2023-07-15 11:41:34,488 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2023-07-15 11:41:34,488 INFO o.a.j.JMeter: os.name=Mac OS X
+2023-07-15 11:41:34,488 INFO o.a.j.JMeter: os.arch=x86_64
+2023-07-15 11:41:34,488 INFO o.a.j.JMeter: os.version=13.4
+2023-07-15 11:41:34,488 INFO o.a.j.JMeter: file.encoding=UTF-8
+2023-07-15 11:41:34,488 INFO o.a.j.JMeter: java.awt.headless=null
+2023-07-15 11:41:34,488 INFO o.a.j.JMeter: Max memory     =1073741824
+2023-07-15 11:41:34,489 INFO o.a.j.JMeter: Available Processors =12
+2023-07-15 11:41:34,499 INFO o.a.j.JMeter: Default Locale=English (China)
+2023-07-15 11:41:34,499 INFO o.a.j.JMeter: JMeter  Locale=English (China)
+2023-07-15 11:41:34,500 INFO o.a.j.JMeter: JMeterHome=/Users/yangwu/lib/apache-jmeter-5.6
+2023-07-15 11:41:34,500 INFO o.a.j.JMeter: user.dir  =/Users/yangwu/Desktop/notes
+2023-07-15 11:41:34,500 INFO o.a.j.JMeter: PWD       =/Users/yangwu/Desktop/notes
+2023-07-15 11:41:34,504 INFO o.a.j.JMeter: IP: 192.168.0.102 Name: 192.168.0.102 FullName: 192.168.0.102
