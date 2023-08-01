@@ -1,20 +1,375 @@
-2023-07-15 11:41:34,381 INFO o.a.j.u.JMeterUtils: Setting Locale to en_CN
-2023-07-15 11:41:34,479 INFO o.a.j.JMeter: Loading user properties from: /Users/yangwu/lib/apache-jmeter-5.6/bin/user.properties
-2023-07-15 11:41:34,480 INFO o.a.j.JMeter: Loading system properties from: /Users/yangwu/lib/apache-jmeter-5.6/bin/system.properties
-2023-07-15 11:41:34,488 INFO o.a.j.JMeter: Copyright (c) 1998-2023 The Apache Software Foundation
-2023-07-15 11:41:34,488 INFO o.a.j.JMeter: Version 5.6
-2023-07-15 11:41:34,488 INFO o.a.j.JMeter: java.version=17.0.5
-2023-07-15 11:41:34,488 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
-2023-07-15 11:41:34,488 INFO o.a.j.JMeter: os.name=Mac OS X
-2023-07-15 11:41:34,488 INFO o.a.j.JMeter: os.arch=x86_64
-2023-07-15 11:41:34,488 INFO o.a.j.JMeter: os.version=13.4
-2023-07-15 11:41:34,488 INFO o.a.j.JMeter: file.encoding=UTF-8
-2023-07-15 11:41:34,488 INFO o.a.j.JMeter: java.awt.headless=null
-2023-07-15 11:41:34,488 INFO o.a.j.JMeter: Max memory     =1073741824
-2023-07-15 11:41:34,489 INFO o.a.j.JMeter: Available Processors =12
-2023-07-15 11:41:34,499 INFO o.a.j.JMeter: Default Locale=English (China)
-2023-07-15 11:41:34,499 INFO o.a.j.JMeter: JMeter  Locale=English (China)
-2023-07-15 11:41:34,500 INFO o.a.j.JMeter: JMeterHome=/Users/yangwu/lib/apache-jmeter-5.6
-2023-07-15 11:41:34,500 INFO o.a.j.JMeter: user.dir  =/Users/yangwu/Desktop/notes
-2023-07-15 11:41:34,500 INFO o.a.j.JMeter: PWD       =/Users/yangwu/Desktop/notes
-2023-07-15 11:41:34,504 INFO o.a.j.JMeter: IP: 192.168.0.102 Name: 192.168.0.102 FullName: 192.168.0.102
+2023-08-01 16:56:21,599 INFO o.a.j.u.JMeterUtils: Setting Locale to en_CN
+2023-08-01 16:56:21,621 INFO o.a.j.JMeter: Loading user properties from: /Users/yangwu/lib/apache-jmeter-5.6/bin/user.properties
+2023-08-01 16:56:21,622 INFO o.a.j.JMeter: Loading system properties from: /Users/yangwu/lib/apache-jmeter-5.6/bin/system.properties
+2023-08-01 16:56:21,627 INFO o.a.j.JMeter: Copyright (c) 1998-2023 The Apache Software Foundation
+2023-08-01 16:56:21,628 INFO o.a.j.JMeter: Version 5.6
+2023-08-01 16:56:21,628 INFO o.a.j.JMeter: java.version=17.0.5
+2023-08-01 16:56:21,628 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2023-08-01 16:56:21,628 INFO o.a.j.JMeter: os.name=Mac OS X
+2023-08-01 16:56:21,628 INFO o.a.j.JMeter: os.arch=x86_64
+2023-08-01 16:56:21,628 INFO o.a.j.JMeter: os.version=13.4
+2023-08-01 16:56:21,628 INFO o.a.j.JMeter: file.encoding=UTF-8
+2023-08-01 16:56:21,628 INFO o.a.j.JMeter: java.awt.headless=null
+2023-08-01 16:56:21,628 INFO o.a.j.JMeter: Max memory     =1073741824
+2023-08-01 16:56:21,628 INFO o.a.j.JMeter: Available Processors =12
+2023-08-01 16:56:21,634 INFO o.a.j.JMeter: Default Locale=English (China)
+2023-08-01 16:56:21,635 INFO o.a.j.JMeter: JMeter  Locale=English (China)
+2023-08-01 16:56:21,635 INFO o.a.j.JMeter: JMeterHome=/Users/yangwu/lib/apache-jmeter-5.6
+2023-08-01 16:56:21,635 INFO o.a.j.JMeter: user.dir  =/Users/yangwu/Desktop/notes
+2023-08-01 16:56:21,635 INFO o.a.j.JMeter: PWD       =/Users/yangwu/Desktop/notes
+2023-08-01 16:56:21,639 INFO o.a.j.JMeter: IP: 192.168.0.102 Name: 192.168.0.102 FullName: 192.168.0.102
+2023-08-01 16:56:21,652 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2023-08-01 16:56:22,017 INFO o.a.j.JMeterGuiLauncher: Setting LAF to: laf:com.apple.laf.AquaLookAndFeel
+2023-08-01 16:56:23,214 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-manager-1.9.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.action.Command], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:56:23,299 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-graphs-basic-2.0.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.action.Command], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:56:23,303 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-casutg-2.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.action.Command], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:56:23,359 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-manager-1.9.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.plugin.MenuCreator], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:56:23,363 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-graphs-basic-2.0.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.plugin.MenuCreator], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:56:23,363 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-casutg-2.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.gui.plugin.MenuCreator], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:56:23,424 INFO o.j.r.JARSourceHTTP: Using proxy 127.0.0.1:7890
+2023-08-01 16:56:23,429 INFO o.j.r.JARSourceHTTP: Using proxy 127.0.0.1:7890
+2023-08-01 16:56:23,477 INFO o.j.r.JARSourceHTTP: Found cached repo
+2023-08-01 16:56:23,671 INFO o.j.r.JARSourceHTTP: Using proxy 127.0.0.1:7890
+2023-08-01 16:56:23,672 INFO o.j.r.PluginManager: Plugins Status: [jpgc-graphs-basic=2.0, jpgc-casutg=2.10, jpgc-plugins-manager=1.9, jmeter-core=5.6, jmeter-ftp=5.6, jmeter-http=5.6, jmeter-jdbc=5.6, jmeter-jms=5.6, jmeter-junit=5.6, jmeter-java=5.6, jmeter-ldap=5.6, jmeter-mail=5.6, jmeter-mongodb=5.6, jmeter-native=5.6, jmeter-tcp=5.6, jmeter-components=5.6]
+2023-08-01 16:56:30,588 INFO o.a.j.s.FileServer: Default base='/Users/yangwu/Desktop/notes'
+2023-08-01 16:56:30,590 INFO o.a.j.g.a.Load: Loading file: /Users/yangwu/Downloads/Summary Report.jmx
+2023-08-01 16:56:30,590 INFO o.a.j.s.FileServer: Set new base='/Users/yangwu/Downloads'
+2023-08-01 16:56:30,733 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2023-08-01 16:56:30,741 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2023-08-01 16:56:30,742 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2023-08-01 16:56:30,743 INFO o.a.j.s.SaveService: Loading file: /Users/yangwu/Downloads/Summary Report.jmx
+2023-08-01 16:56:30,755 WARN o.j.r.p.TestPlanAnalyzer: Cannot parse file: /Users/yangwu/Downloads/Summary Report.jmx
+org.xml.sax.SAXParseException: Content is not allowed in prolog.
+	at org.apache.xerces.parsers.DOMParser.parse(Unknown Source) ~[xercesImpl-2.12.2.jar:?]
+	at org.apache.xerces.jaxp.DocumentBuilderImpl.parse(Unknown Source) ~[xercesImpl-2.12.2.jar:?]
+	at javax.xml.parsers.DocumentBuilder.parse(DocumentBuilder.java:122) ~[?:?]
+	at org.jmeterplugins.repository.plugins.TestPlanAnalyzer.getNodeListWithClassNames(TestPlanAnalyzer.java:112) ~[jmeter-plugins-manager-1.9.jar:?]
+	at org.jmeterplugins.repository.plugins.TestPlanAnalyzer.analyze(TestPlanAnalyzer.java:37) ~[jmeter-plugins-manager-1.9.jar:?]
+	at org.jmeterplugins.repository.plugins.PluginSuggester.analyzeTestPlan(PluginSuggester.java:51) ~[jmeter-plugins-manager-1.9.jar:?]
+	at org.jmeterplugins.repository.plugins.PluginSuggester.findPluginsToInstall(PluginSuggester.java:44) ~[jmeter-plugins-manager-1.9.jar:?]
+	at org.jmeterplugins.repository.plugins.PluginSuggester.checkAndSuggest(PluginSuggester.java:28) ~[jmeter-plugins-manager-1.9.jar:?]
+	at org.jmeterplugins.repository.logging.LoggerAppender.append(LoggerAppender.java:33) ~[jmeter-plugins-manager-1.9.jar:?]
+	at org.apache.logging.log4j.core.config.AppenderControl.tryCallAppender(AppenderControl.java:161) ~[log4j-core-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.core.config.AppenderControl.callAppender0(AppenderControl.java:134) ~[log4j-core-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.core.config.AppenderControl.callAppenderPreventRecursion(AppenderControl.java:125) ~[log4j-core-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.core.config.AppenderControl.callAppender(AppenderControl.java:89) ~[log4j-core-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.core.config.LoggerConfig.callAppenders(LoggerConfig.java:683) ~[log4j-core-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.core.config.LoggerConfig.processLogEvent(LoggerConfig.java:641) ~[log4j-core-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.core.config.LoggerConfig.log(LoggerConfig.java:624) ~[log4j-core-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.core.config.LoggerConfig.log(LoggerConfig.java:560) ~[log4j-core-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.core.config.AwaitCompletionReliabilityStrategy.log(AwaitCompletionReliabilityStrategy.java:82) ~[log4j-core-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.core.Logger.log(Logger.java:163) ~[log4j-core-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.spi.AbstractLogger.tryLogMessage(AbstractLogger.java:2168) ~[log4j-api-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.spi.AbstractLogger.logMessageTrackRecursion(AbstractLogger.java:2122) ~[log4j-api-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.spi.AbstractLogger.logMessageSafely(AbstractLogger.java:2105) ~[log4j-api-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.spi.AbstractLogger.logMessage(AbstractLogger.java:1997) ~[log4j-api-2.20.0.jar:2.20.0]
+	at org.apache.logging.log4j.spi.AbstractLogger.logIfEnabled(AbstractLogger.java:1862) ~[log4j-api-2.20.0.jar:2.20.0]
+	at org.apache.logging.slf4j.Log4jLogger.info(Log4jLogger.java:185) ~[log4j-slf4j-impl-2.20.0.jar:2.20.0]
+	at org.apache.jmeter.save.SaveService.loadTree(SaveService.java:425) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.action.Load.loadProjectFile(Load.java:131) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.action.Load.loadProjectFile(Load.java:103) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.action.LoadRecentProject.doActionAfterCheck(LoadRecentProject.java:74) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.action.AbstractActionWithNoRunningTest.doAction(AbstractActionWithNoRunningTest.java:44) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:83) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:65) ~[ApacheJMeter_core.jar:5.6]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:771) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:722) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:716) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:399) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:741) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2023-08-01 16:56:30,771 WARN o.a.j.g.a.Load: Error in XML format. org.xmlpull.v1.XmlPullParserException: only whitespace content allowed before start tag and not t (position: START_DOCUMENT seen t... @1:2) 
+2023-08-01 16:56:30,771 ERROR o.a.j.u.JMeterUtils: only whitespace content allowed before start tag and not t (position: START_DOCUMENT seen t... @1:2) 
+2023-08-01 16:56:41,900 INFO o.a.j.g.a.Load: Loading file: /Users/yangwu/IdeaProjects/spring-integration/idempotent/token-redis/jmeter/idempotent.jmx
+2023-08-01 16:56:41,900 INFO o.a.j.s.FileServer: Set new base='/Users/yangwu/IdeaProjects/spring-integration/idempotent/token-redis/jmeter'
+2023-08-01 16:56:41,900 INFO o.a.j.s.SaveService: Loading file: /Users/yangwu/IdeaProjects/spring-integration/idempotent/token-redis/jmeter/idempotent.jmx
+2023-08-01 16:56:41,989 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2023-08-01 16:56:41,989 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2023-08-01 16:56:41,989 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2023-08-01 16:56:41,989 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2023-08-01 16:56:41,989 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2023-08-01 16:56:41,990 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2023-08-01 16:56:42,082 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2023-08-01 16:56:42,082 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2023-08-01 16:56:42,082 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2023-08-01 16:56:42,082 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2023-08-01 16:56:42,234 ERROR o.a.j.v.ViewResultsFullVisualizer: Exception registering implementation: [org.apache.jmeter.visualizers.RenderInBrowser] of interface: [interface org.apache.jmeter.visualizers.ResultRenderer], a jar is probably missing
+java.util.ServiceConfigurationError: org.apache.jmeter.visualizers.ResultRenderer: org.apache.jmeter.visualizers.RenderInBrowser Unable to get public no-arg constructor
+	at java.util.ServiceLoader.fail(ServiceLoader.java:586) ~[?:?]
+	at java.util.ServiceLoader.getConstructor(ServiceLoader.java:679) ~[?:?]
+	at java.util.ServiceLoader$LazyClassPathLookupIterator.hasNextService(ServiceLoader.java:1240) ~[?:?]
+	at java.util.ServiceLoader$LazyClassPathLookupIterator.hasNext(ServiceLoader.java:1273) ~[?:?]
+	at java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1309) ~[?:?]
+	at java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1393) ~[?:?]
+	at org.apache.jorphan.reflect.ClassFinder.loadServices(ClassFinder.java:115) ~[jorphan.jar:5.6]
+	at org.apache.jmeter.util.JMeterUtils.loadServicesAndScanJars(JMeterUtils.java:345) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.visualizers.ViewResultsFullVisualizer.createComboRender(ViewResultsFullVisualizer.java:464) ~[ApacheJMeter_components.jar:5.6]
+	at org.apache.jmeter.visualizers.ViewResultsFullVisualizer.createLeftPanel(ViewResultsFullVisualizer.java:438) ~[ApacheJMeter_components.jar:5.6]
+	at org.apache.jmeter.visualizers.ViewResultsFullVisualizer.init(ViewResultsFullVisualizer.java:349) ~[ApacheJMeter_components.jar:5.6]
+	at org.apache.jmeter.visualizers.ViewResultsFullVisualizer.<init>(ViewResultsFullVisualizer.java:156) ~[ApacheJMeter_components.jar:5.6]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[?:?]
+	at org.apache.jmeter.gui.GuiPackage.getGuiFromCache(GuiPackage.java:424) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.GuiPackage.getGui(GuiPackage.java:267) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.GuiPackage.getGui(GuiPackage.java:238) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addComponent(JMeterTreeModel.java:160) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:131) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:131) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:123) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.GuiPackage.addSubTree(GuiPackage.java:555) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.action.Load.insertLoadedTree(Load.java:201) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.action.Load.loadProjectFile(Load.java:132) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.action.Load.loadProjectFile(Load.java:103) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.action.LoadRecentProject.doActionAfterCheck(LoadRecentProject.java:74) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.action.AbstractActionWithNoRunningTest.doAction(AbstractActionWithNoRunningTest.java:44) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:83) ~[ApacheJMeter_core.jar:5.6]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:65) ~[ApacheJMeter_core.jar:5.6]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:771) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:722) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:716) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:399) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:86) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:741) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+Caused by: java.lang.NoClassDefFoundError: javafx/embed/swing/JFXPanel
+	at java.lang.Class.getDeclaredConstructors0(Native Method) ~[?:?]
+	at java.lang.Class.privateGetDeclaredConstructors(Class.java:3373) ~[?:?]
+	at java.lang.Class.getConstructor0(Class.java:3578) ~[?:?]
+	at java.lang.Class.getConstructor(Class.java:2271) ~[?:?]
+	at java.util.ServiceLoader$1.run(ServiceLoader.java:666) ~[?:?]
+	at java.util.ServiceLoader$1.run(ServiceLoader.java:663) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:569) [?:?]
+	at java.util.ServiceLoader.getConstructor(ServiceLoader.java:674) ~[?:?]
+	... 43 more
+Caused by: java.lang.ClassNotFoundException: javafx.embed.swing.JFXPanel
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:445) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:587) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[?:?]
+	at java.lang.Class.getDeclaredConstructors0(Native Method) ~[?:?]
+	at java.lang.Class.privateGetDeclaredConstructors(Class.java:3373) ~[?:?]
+	at java.lang.Class.getConstructor0(Class.java:3578) ~[?:?]
+	at java.lang.Class.getConstructor(Class.java:2271) ~[?:?]
+	at java.util.ServiceLoader$1.run(ServiceLoader.java:666) ~[?:?]
+	at java.util.ServiceLoader$1.run(ServiceLoader.java:663) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:569) ~[?:?]
+	at java.util.ServiceLoader.getConstructor(ServiceLoader.java:674) ~[?:?]
+	... 43 more
+2023-08-01 16:56:42,236 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-manager-1.9.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.visualizers.ResultRenderer], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:56:42,238 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-graphs-basic-2.0.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.visualizers.ResultRenderer], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:56:42,239 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-casutg-2.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.visualizers.ResultRenderer], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:56:42,251 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-manager-1.9.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.visualizers.RequestView], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:56:42,253 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-graphs-basic-2.0.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.visualizers.RequestView], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:56:42,254 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-casutg-2.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.visualizers.RequestView], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:56:42,301 INFO o.a.j.s.FileServer: Set new base='/Users/yangwu/IdeaProjects/spring-integration/idempotent/token-redis/jmeter'
+2023-08-01 16:57:04,055 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2023-08-01 16:57:04,056 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2023-08-01 16:57:04,056 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2023-08-01 16:57:04,057 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2023-08-01 16:57:04,057 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2023-08-01 16:57:04,121 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-manager-1.9.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:57:04,123 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-graphs-basic-2.0.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:57:04,124 INFO o.a.j.r.ClassFinder: Will scan jar /Users/yangwu/lib/apache-jmeter-5.6/lib/ext/jmeter-plugins-casutg-2.10.jar with filter ExtendsClassFilter [parents=[interface org.apache.jmeter.functions.Function], inner=false, contains=null, notContains=null]. Consider exposing JMeter plugins via META-INF/services, and add JMeter-Skip-Class-Scanning=true manifest attribute so JMeter can skip classfile scanning
+2023-08-01 16:57:04,135 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2023-08-01 16:57:04,170 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2023-08-01 16:57:04,170 INFO o.a.j.e.StandardJMeterEngine: Starting 10 threads for group Thread Group.
+2023-08-01 16:57:04,171 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2023-08-01 16:57:04,171 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=10 ramp-up=0 delayedStart=false
+2023-08-01 16:57:04,175 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2023-08-01 16:57:04,175 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-5
+2023-08-01 16:57:04,175 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2023-08-01 16:57:04,175 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2023-08-01 16:57:04,175 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-4
+2023-08-01 16:57:04,175 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-6
+2023-08-01 16:57:04,176 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-7
+2023-08-01 16:57:04,176 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-8
+2023-08-01 16:57:04,177 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-9
+2023-08-01 16:57:04,177 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2023-08-01 16:57:04,177 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2023-08-01 16:57:04,178 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-10
+2023-08-01 16:57:04,183 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = 192.168.0.102
+2023-08-01 16:57:04,187 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2023-08-01 16:57:04,273 INFO o.a.j.u.JsseSSLManager: Using default SSL protocol: TLS
+2023-08-01 16:57:04,273 INFO o.a.j.u.JsseSSLManager: SSL session context: per-thread
+2023-08-01 16:57:15,986 INFO o.a.j.g.a.Start: Stopping test
+2023-08-01 16:57:16,004 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-4
+2023-08-01 16:57:16,005 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-4 sampler: insertConfig:User-2:
+2023-08-01 16:57:16,009 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-9
+2023-08-01 16:57:16,009 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-9 sampler: insertConfig:User-2:
+2023-08-01 16:57:16,009 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-1
+2023-08-01 16:57:16,009 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-1 sampler: insertConfig:User-2:
+2023-08-01 16:57:16,009 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-7
+2023-08-01 16:57:16,009 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-7 sampler: insertConfig:User-2:
+2023-08-01 16:57:16,010 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-6
+2023-08-01 16:57:16,010 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-6 sampler: insertConfig:User-2:
+2023-08-01 16:57:16,010 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-2
+2023-08-01 16:57:16,010 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-2 sampler: insertConfig:User-2:
+2023-08-01 16:57:16,010 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-8
+2023-08-01 16:57:16,011 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-8 sampler: insertConfig:User-2:
+2023-08-01 16:57:16,011 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-4
+2023-08-01 16:57:16,011 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-3
+2023-08-01 16:57:16,011 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-3 sampler: insertConfig:User-2:
+2023-08-01 16:57:16,011 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-5
+2023-08-01 16:57:16,011 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-5 sampler: insertConfig:User-2:
+2023-08-01 16:57:16,011 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-9
+2023-08-01 16:57:16,012 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-7
+2023-08-01 16:57:16,012 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2023-08-01 16:57:16,012 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-10
+2023-08-01 16:57:16,012 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-6
+2023-08-01 16:57:16,012 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-10 sampler: insertConfig:User-2:
+2023-08-01 16:57:16,012 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2023-08-01 16:57:16,012 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-8
+2023-08-01 16:57:16,012 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2023-08-01 16:57:16,013 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-5
+2023-08-01 16:57:16,013 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-10
+2023-08-01 16:57:16,013 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2023-08-01 16:57:16,075 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2023-08-01 16:57:39,536 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2023-08-01 16:57:39,537 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2023-08-01 16:57:39,539 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2023-08-01 16:57:39,595 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2023-08-01 16:57:39,595 INFO o.a.j.e.StandardJMeterEngine: Starting 10 threads for group Thread Group.
+2023-08-01 16:57:39,595 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2023-08-01 16:57:39,596 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=10 ramp-up=0 delayedStart=false
+2023-08-01 16:57:39,596 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2023-08-01 16:57:39,597 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2023-08-01 16:57:39,597 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2023-08-01 16:57:39,597 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-4
+2023-08-01 16:57:39,598 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-5
+2023-08-01 16:57:39,598 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-6
+2023-08-01 16:57:39,598 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-7
+2023-08-01 16:57:39,599 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-8
+2023-08-01 16:57:39,599 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2023-08-01 16:57:39,599 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-9
+2023-08-01 16:57:39,599 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2023-08-01 16:57:39,599 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-10
+2023-08-01 16:58:09,368 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-10
+2023-08-01 16:58:09,369 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-10
+2023-08-01 16:58:09,440 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-8
+2023-08-01 16:58:09,440 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-8
+2023-08-01 16:58:09,445 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-6
+2023-08-01 16:58:09,446 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-6
+2023-08-01 16:58:09,446 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2023-08-01 16:58:09,446 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2023-08-01 16:58:09,450 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2023-08-01 16:58:09,450 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2023-08-01 16:58:09,457 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-9
+2023-08-01 16:58:09,457 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-9
+2023-08-01 16:58:09,481 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-5
+2023-08-01 16:58:09,481 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-5
+2023-08-01 16:58:09,491 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2023-08-01 16:58:09,492 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2023-08-01 16:58:09,494 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-7
+2023-08-01 16:58:09,494 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-7
+2023-08-01 16:58:09,495 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-4
+2023-08-01 16:58:09,495 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-4
+2023-08-01 16:58:09,495 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2023-08-01 16:58:09,496 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2023-08-01 16:58:25,809 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2023-08-01 16:58:25,811 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2023-08-01 16:58:25,812 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2023-08-01 16:58:25,917 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2023-08-01 16:58:25,917 INFO o.a.j.e.StandardJMeterEngine: Starting 10 threads for group Thread Group.
+2023-08-01 16:58:25,917 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2023-08-01 16:58:25,918 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=10 ramp-up=0 delayedStart=false
+2023-08-01 16:58:25,918 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2023-08-01 16:58:25,919 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2023-08-01 16:58:25,919 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2023-08-01 16:58:25,919 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-4
+2023-08-01 16:58:25,919 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-5
+2023-08-01 16:58:25,920 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-6
+2023-08-01 16:58:25,920 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-7
+2023-08-01 16:58:25,921 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-8
+2023-08-01 16:58:25,921 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-9
+2023-08-01 16:58:25,921 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2023-08-01 16:58:25,921 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2023-08-01 16:58:25,921 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-10
+2023-08-01 16:58:47,735 INFO o.a.j.g.a.Start: Stopping test
+2023-08-01 16:58:47,753 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-8
+2023-08-01 16:58:47,754 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-8 sampler: insertConfig:User-5:
+2023-08-01 16:58:47,756 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-5
+2023-08-01 16:58:47,757 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-5 sampler: insertConfig:User-5:
+2023-08-01 16:58:47,757 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-8
+2023-08-01 16:58:47,757 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-7
+2023-08-01 16:58:47,757 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-7 sampler: insertConfig:User-5:
+2023-08-01 16:58:47,757 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-5
+2023-08-01 16:58:47,757 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-6
+2023-08-01 16:58:47,757 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-6 sampler: insertConfig:User-5:
+2023-08-01 16:58:47,757 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-7
+2023-08-01 16:58:47,757 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-1
+2023-08-01 16:58:47,757 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-1 sampler: insertConfig:User-5:
+2023-08-01 16:58:47,757 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-6
+2023-08-01 16:58:47,758 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-4
+2023-08-01 16:58:47,758 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-4 sampler: insertConfig:User-5:
+2023-08-01 16:58:47,758 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2023-08-01 16:58:47,758 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-9
+2023-08-01 16:58:47,758 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-9 sampler: insertConfig:User-5:
+2023-08-01 16:58:47,758 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-4
+2023-08-01 16:58:47,758 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-10
+2023-08-01 16:58:47,758 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-10 sampler: insertConfig:User-5:
+2023-08-01 16:58:47,758 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-9
+2023-08-01 16:58:47,758 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-2
+2023-08-01 16:58:47,758 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-2 sampler: insertConfig:User-5:
+2023-08-01 16:58:47,758 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-10
+2023-08-01 16:58:47,758 INFO o.a.j.t.JMeterThread: Stopping: Thread Group 1-3
+2023-08-01 16:58:47,759 WARN o.a.j.t.JMeterThread: Interrupting: Thread Group 1-3 sampler: insertConfig:User-5:
+2023-08-01 16:58:47,759 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2023-08-01 16:58:47,759 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2023-08-01 16:58:47,759 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2023-08-01 16:58:47,824 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2023-08-01 16:59:06,936 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2023-08-01 16:59:06,937 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2023-08-01 16:59:06,937 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2023-08-01 16:59:07,008 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Thread Group
+2023-08-01 16:59:07,008 INFO o.a.j.e.StandardJMeterEngine: Starting 10 threads for group Thread Group.
+2023-08-01 16:59:07,008 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2023-08-01 16:59:07,009 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=10 ramp-up=0 delayedStart=false
+2023-08-01 16:59:07,009 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-1
+2023-08-01 16:59:07,009 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-2
+2023-08-01 16:59:07,010 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-3
+2023-08-01 16:59:07,010 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-4
+2023-08-01 16:59:07,010 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-5
+2023-08-01 16:59:07,010 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-6
+2023-08-01 16:59:07,011 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-7
+2023-08-01 16:59:07,011 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-8
+2023-08-01 16:59:07,011 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2023-08-01 16:59:07,011 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-9
+2023-08-01 16:59:07,011 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2023-08-01 16:59:07,012 INFO o.a.j.t.JMeterThread: Thread started: Thread Group 1-10
+2023-08-01 17:00:16,441 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-7
+2023-08-01 17:00:16,441 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-7
+2023-08-01 17:00:16,489 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-9
+2023-08-01 17:00:16,489 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-9
+2023-08-01 17:00:16,588 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-4
+2023-08-01 17:00:16,589 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-4
+2023-08-01 17:00:16,637 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-1
+2023-08-01 17:00:16,637 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-8
+2023-08-01 17:00:16,638 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-1
+2023-08-01 17:00:16,638 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-8
+2023-08-01 17:00:16,642 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-10
+2023-08-01 17:00:16,642 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-10
+2023-08-01 17:00:16,661 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-6
+2023-08-01 17:00:16,661 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-6
+2023-08-01 17:00:16,663 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-5
+2023-08-01 17:00:16,664 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-5
+2023-08-01 17:00:16,713 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-3
+2023-08-01 17:00:16,713 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-3
+2023-08-01 17:00:16,716 INFO o.a.j.t.JMeterThread: Thread is done: Thread Group 1-2
+2023-08-01 17:00:16,716 INFO o.a.j.t.JMeterThread: Thread finished: Thread Group 1-2
+2023-08-01 17:00:16,717 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2023-08-01 17:00:16,717 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
